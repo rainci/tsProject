@@ -41,4 +41,10 @@
     
     document.body.innerHTML = greeter(user);
 }
-
+{
+    function greetNamed(name: string): string {
+        if(name){
+            return `Hi,${name}`
+        }
+    }
+}

@@ -14,6 +14,11 @@
     let name:string = 'lyx';
     let u: undefined = undefined;
     let n: null = null;
+    // undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量，而 void 类型的变量不能赋值给 number 类型的变量：
+    // 这样不会报错
+    let num: number = undefined;
+    let myFavoriteNumber: any = 'seven';
+        myFavoriteNumber = 7;
     // let createdByNewBoolean: boolean = new Boolean(1) || Boolean(1); // new的话，会生成对象：Boolean {true} 会报错 直接Boolean(1)就是boolean值
 }
 

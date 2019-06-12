@@ -1,11 +1,36 @@
 {
-    function greet(person: string) {
+    function greet(person?: string):string {
         return `hello ${person}`
     }
     let name = 'Rainci';
     let user = [0, 1, 2];
     // document.body.innerHTML = greet(user) //TypeScript 编译的时候即使报错了，还是会生成编译结果
+    document.body.innerHTML = greet()//如果没有参数？，则参数必选，会报错
     document.body.innerHTML = greet(name)
+    var greetNamed : (name : string) => string = function (name : string) : string {
+        if(name){
+            return `Hi,${name}`
+        }
+    }
+    greetNamed('lyx')
+
+    function sum(a:number,b:number,callback:(result:number)=>void){
+        callback(a+b)
+    }
+
+    function add (foo : number, bar : number, foobar : number = 0) : number {
+        return foo + bar + foobar
+    }
+    //add() //报错，提示应该传2-3个参数
+    // add函数改善，多个参数
+    function adds (...foo : number[]) : number {
+        var result = 0;
+        for(let i = 0; i < foo.length; i++){
+            result += foo[i];
+        }
+        return result;
+    }
+    // adds(）
 }
 {
     //数据类型
@@ -49,18 +74,33 @@
         firstName:string;
         lastName:string;
     }
-    function greeter(person : Person) {
+    var people:Person = {
+        firstName:'',
+        lastName:''
+    }
+    function greeter(person : Person):string {
         return `hello,${person.firstName} ${person.lastName}` 
     }
     
     let user = new Student("Jane", "M.", "User");
     
     document.body.innerHTML = greeter(user);
-}
-{
-    function greetNamed(name: string): string {
-        if(name){
-            return `Hi,${name}`
+
+    interface LogInterface {
+        log(args:any):void;
+    }
+    class Logger implements LogInterface {
+        log(arg){
+            if(typeof console.log === 'function'){
+                console.log(arg)
+                return 123
+            }else{
+                alert(arg)
+            }
         }
     }
+    // var lo = new Logger()
+}
+{
+    
 }

@@ -3,7 +3,18 @@
         return `hello ${person}`
     }
     let name = 'Rainci';
+    let user = [0, 1, 2];
+    // document.body.innerHTML = greet(user) //TypeScript 编译的时候即使报错了，还是会生成编译结果
     document.body.innerHTML = greet(name)
+}
+{
+    //数据类型
+    let isDone: boolean = true;
+    let age: number = 2;
+    let name:string = 'lyx';
+    let u: undefined = undefined;
+    let n: null = null;
+    // let createdByNewBoolean: boolean = new Boolean(1) || Boolean(1); // new的话，会生成对象：Boolean {true} 会报错 直接Boolean(1)就是boolean值
 }
 
 // {

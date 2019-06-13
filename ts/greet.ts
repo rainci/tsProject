@@ -71,13 +71,15 @@
 
     }
     interface Person {
-        firstName:string;
-        lastName:string;
+        readonly firstName:string;
+        lastName?:string;
+        [propName: string]:any;//使用 [propName: string] 定义了任意属性取 string 类型的值
     }
     var people:Person = {
         firstName:'',
-        lastName:''
+        gender:1, //如果没有[propName: string]:any; 就报错 gender不在Person中
     }
+    // people.firstName = 'lyx';//报错，firstName是read-only
     function greeter(person : Person):string {
         return `hello,${person.firstName} ${person.lastName}` 
     }

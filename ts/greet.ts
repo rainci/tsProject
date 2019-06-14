@@ -7,7 +7,7 @@
     // document.body.innerHTML = greet(user) //TypeScript 编译的时候即使报错了，还是会生成编译结果
     document.body.innerHTML = greet()//如果没有参数？，则参数必选，会报错
     document.body.innerHTML = greet(name)
-    var greetNamed : (name : string) => string = function (name : string) : string {
+    var greetNamed : (name : string) => string = function (name : string) : string { //在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型
         if(name){
             return `Hi,${name}`
         }
@@ -18,7 +18,7 @@
         callback(a+b)
     }
 
-    function add (foo : number, bar : number, foobar : number = 0) : number {
+    function add (foo : number, bar : (number), foobar : number = 0) : number {
         return foo + bar + foobar
     }
     //add() //报错，提示应该传2-3个参数
@@ -31,6 +31,13 @@
         return result;
     }
     // adds(）
+    function getLength(something: string | number): number { //联合类型，只能访问共同属性和方法
+        if ((<string>something).length) {//类型断言的用法，在需要断言的变量前加上 <Type> 即可 注：断言成一个联合类型中不存在的类型是不允许的
+            return (<string>something).length;
+        } else {
+            return something.toString().length;
+        }
+    }
 }
 {
     //数据类型
@@ -44,6 +51,9 @@
     let num: number = undefined;
     let myFavoriteNumber: any = 'seven';
         myFavoriteNumber = 7;
+    let feibo:number[] = [1,1,2,3,5]
+    let fei:(number|string)[] = [1,'1',2,3,5]
+    let fibonacci: Array<number> = [1, 1, 2, 3, 5];    
     // let createdByNewBoolean: boolean = new Boolean(1) || Boolean(1); // new的话，会生成对象：Boolean {true} 会报错 直接Boolean(1)就是boolean值
 }
 
@@ -102,6 +112,14 @@
         }
     }
     // var lo = new Logger()
+    // 用接口定义函数的形状
+    interface searchFn {
+        (source:string,subString:string):boolean
+    }
+    let mysearch : searchFn;
+    mysearch = function (source:string,subString:string) : boolean {
+        return source.search(subString) != -1
+    }
 }
 {
     

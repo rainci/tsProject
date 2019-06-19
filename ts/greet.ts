@@ -136,4 +136,10 @@
     }
     handleEvent(document.getElementById('hello'), 'click');  // 没问题
     // handleEvent(document.getElementById('world'), 'dbclick'); // 报错，event 不能为 'dbclick'
+
+}
+{
+    //元组
+    let catx : [string,number]
+    catx = ['liu']
 }

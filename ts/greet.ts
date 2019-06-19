@@ -122,5 +122,18 @@
     }
 }
 {
-    
+    // type 创建类型别名，类型别名常用于联合类型
+    type Name = string;
+    type Resolver = () => string;
+    type NameOrResolver = Name | Resolver;
+    function getName(n:NameOrResolver):Name {
+        if(typeof n === 'string') return n;
+        return n();
+    }
+
+    type EventName = 'click' | 'mousemove';
+    function handleEvent(ele:Element,event:EventName){   
+    }
+    handleEvent(document.getElementById('hello'), 'click');  // 没问题
+    // handleEvent(document.getElementById('world'), 'dbclick'); // 报错，event 不能为 'dbclick'
 }

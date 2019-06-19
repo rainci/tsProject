@@ -141,5 +141,7 @@
 {
     //元组
     let catx : [string,number]
-    catx = ['liu']
+    catx = ['liu',2]
+    catx.push(3)//不报错 越界元素
+    // catx.push(true) //报错 当添加越界的元素时，它的类型会被限制为元组中每个类型的联合类型
 }

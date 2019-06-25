@@ -145,3 +145,15 @@
     catx.push(3)//不报错 越界元素
     // catx.push(true) //报错 当添加越界的元素时，它的类型会被限制为元组中每个类型的联合类型
 }
+{
+    // 枚举成员会被赋值为从 0 开始递增的数字，同时也会对枚举值到枚举名进行反向映射
+    enum Directions {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+    console.log(Directions.Up === 0)//true
+    console.log(Directions[0] === 'up')
+    let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right]; //编译结果： var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+}
